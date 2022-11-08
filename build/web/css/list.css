@@ -1,0 +1,79 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Mar 16, 2022, 10:40:47 PM
+    Author     : DINHDAT
+*/
+
+* {
+    box-sizing: border-box;
+}
+
+.header {
+    overflow: hidden;
+    background-color: #000000;
+    padding: 20px 10px;
+}
+
+.header a {
+    float: left;
+    color: rgb(243, 242, 242);
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 25px;
+    border-radius: 4px;
+}
+
+.header a.logo {
+    font-size: 25px;
+}
+
+.header a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.header a:focus {
+    background-color: #ddd;
+    color: black;
+}
+
+.header-left {
+    float: left;
+    padding-left: 3cm;
+}
+.header-right {
+    float: right;
+    margin-right: 3cm;
+}
+.body {
+    float: left;
+    padding-left: 3.5cm;
+    margin-top: 0.5cm;
+}
+.container{
+    margin-top: 2cm;
+}
+.container table{
+    margin-top: 1cm;
+}
+.container view Activity detail{
+    float: left;
+    padding-left: 3.5cm;
+    margin-top: 0.5cm;
+}
+table,
+tr,
+th,
+td {
+    border: 1px solid black;
+}
+
+/*table tr:nth-child(1) {
+    background-color: rgb(222, 227, 230);
+}*/

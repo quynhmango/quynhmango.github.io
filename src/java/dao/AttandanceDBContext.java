@@ -72,6 +72,30 @@ public class AttandanceDBContext {
         return atts;
     }
 
-    
-    
+    public void addAttended(Attandance att) {
+        String sql = "INSERT INTO [dbo].[Attandance]\n"
+                + "           ([aid]\n"
+                + "           ,[sesid]\n"
+                + "           ,[stdid]\n"
+                + "           ,[present]\n"
+                + "           ,[description])\n"
+                + "     VALUES\n"
+                + "           (? \n"
+                + "           ,? \n"
+                + "           ,? \n"
+                + "           ,? \n"
+                + "           ,? )";
+        try {
+            //tạo khay chứa câu lệnh sql 
+            PreparedStatement pre = con.prepareStatement(sql);
+            // sét giá trị cho dấu ?
+            pre.setInt(1, att.getId());
+            //pre.setS
+        } catch (Exception e) {
+            //neu ma loi thi hien ra
+            e.printStackTrace();
+        }
+
+    }
+
 }

@@ -4,20 +4,20 @@
  */
 package controller.lecture;
 
-import java.io.IOException;
-import java.io.PrintWriter;
+import dao.SessionDBContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.io.IOException;
+import java.io.PrintWriter;
+import model.Session;
 
 /**
  *
  * @author ASUS
  */
-public class AddAttendenceStudent extends HttpServlet {
+public class ListController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,10 +36,10 @@ public class AddAttendenceStudent extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet AddAttendenceStudent</title>");            
+            out.println("<title>Servlet ListController</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet AddAttendenceStudent at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ListController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -57,37 +57,13 @@ public class AddAttendenceStudent extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //get value-> param
-        //int phone_id = Integer.parseInt(request.getParameter("PhoneID"));
-        String name = request.getParameter("name");
-        float price = Float.parseFloat(request.getParameter("price"));
-        String isSolded = request.getParameter("sold");
-        int catalog_id = Integer.parseInt(request.getParameter("catalogid"));
-        
-        //process date
-        String dateString = request.getParameter("exdate");
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        Date date = new Date();
-        try {
-            // String -> Date
-            date = format.parse(dateString);
-        } catch (Exception e) {
-            response.getWriter().print("error Date : " + e);
-        }
+        int idSec = Integer.parseInt(request.getParameter("id"));
+        SessionDBContext sesDB = new SessionDBContext();
+        Session ses = sesDB.get(idSec);
+        request.setAttribute("ses", ses);
 
-        
-        //tao model tuong ung
-        //?
-//        Catalog catalog = new Catalog(catalog_id, name);
-//        Phone phone = new Phone(catalog_id, name, price, date, true, catalog);
-//        
-//        
-//        //add
-//        PhoneDAO pdao = new PhoneDAO();
-//        pdao.addPhone(phone);
-        
-        //next trang
-        response.sendRedirect("list");
+        request.getRequestDispatcher("teacher_ass/list-attended.jsp").forward(request, response);
+
     }
 
     /**

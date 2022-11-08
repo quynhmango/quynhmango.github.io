@@ -110,8 +110,8 @@ public class Session {
         this.attandances = attandances;
     }
 
-    public Object getAttandances() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public ArrayList<Attandance> getAttandances() {
+       return  this.attandances; // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }

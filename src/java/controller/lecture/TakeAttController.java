@@ -95,7 +95,7 @@ public class TakeAttController extends HttpServlet {
             throws ServletException, IOException {
         Session ses = new Session();
         ses.setId(Integer.parseInt(request.getParameter("sesid")));
-        
+         
         String[] stdids = request.getParameterValues("stdid");
         for (String stdid : stdids) {
             Attandance a = new Attandance();
@@ -107,10 +107,11 @@ public class TakeAttController extends HttpServlet {
             a.setDescription(request.getParameter("description"+stdid));
             ses.getAttandances().add(a);
         }
-        
+         
         SessionDBContext db = new SessionDBContext();
         db.updateAttandance(ses);
-        response.sendRedirect("takeatt?id="+ses.getId());
+      
+       response.sendRedirect("takeatt?id="+ses.getId());
     }
 
     /**

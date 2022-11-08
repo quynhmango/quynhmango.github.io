@@ -110,6 +110,7 @@ public class SessionDBContext {
     }
 
     public void updateAttandance(Session model) {
+        //abcs
         try {
             con.setAutoCommit(false);
             String sql_update_attanded = "UPDATE [Session]\n"
